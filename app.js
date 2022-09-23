@@ -1,3 +1,4 @@
+//Problemas 1
 dineroR = prompt("Cuanto dinero tienes Roberto?");
 dineroC = prompt("Cuanto dinero tienes Cofla?");
 dineroP = prompt("Cuanto dinero tienes Pedro?");
@@ -49,4 +50,95 @@ if(dineroP >=  0.6 && dineroP < 1) {
     alert("pedro, compra helado con confetite o pote de helado");
 } else {
     alert("pedro, Poco dinero");
+}
+
+//Problemas 2
+let free = flase;
+
+const validarCliente = time => {
+    let edad = prompt("Cual es tu edad?");
+    if(edad > 18) {
+        if(time >= 2 && time <= 7 && free == false){
+            alert("Puedes estrar gratis");
+            free = true;
+        } else {
+            alert(`Son las ${time}, Puedes pasar pero pagas entrada`);
+        }
+    } else {
+        alert("Eress menor de edad, no puedes pasar");
+    }
+}
+
+let cantidad = prompt("Cuantos alumnos son?");
+let alumnosArr = [];
+
+for(let i = 0; i < cantidad; i++) {
+    alumnosArr[i] = [prompt("Nombre del alumno "(i+1)), 0];
+}
+
+const tomarAsistencia = (nombre, p) => {
+    let presencia = prompt(nombre);
+    if(presencia == "p" || presencia == "P") {
+        alumnosArr[i][1]++;
+    }
+}
+
+for(i = 0; i < 30; i++){
+    for(alumno in alumnosArr) {
+        tomarAsistencia(alumnosArr[alumno][0], alumno);
+    }
+}
+
+for (alumno in alumnosArr) {
+    let resultado = `${alumnosArr[alumno][0]}:<br>
+    ________Presentes: ${alumnosArr[alumno][1]}<br>
+    ________Ausencias: ${30 - parseInt(alumnosArr[alumno][1])}`;
+    if (30 - alumnosArr[alumno][1] > 18) {
+        resultado += "Reprobado por inasistencias<br><br>";
+    } else {
+        resultado += "<br><br>"
+    }
+}
+
+const sumar = (n1, n2) => {
+    return parseInt(n1) + parseInt(n2);
+}
+
+const restar = (n1, n2) => {
+    return parseInt(n1) - parseInt(n2);
+}
+
+const dividir = (n1, n2) => {
+    return parseInt(n1) / parseInt(n2);
+}
+
+const multiplicar = (n1, n2) => {
+    return parseInt(n1) * parseInt(n2);
+}
+
+alert("Que operacion deseas realizar?");
+let operacion = prompt("1 Suma, 2 Resta, 3 Division, 4 Multiplicacion");
+
+if (operacion ==  1) {
+    let n1 = prompt("Primer numero para sumar");
+    let n2 = prompt("Segudo numero para sumar");
+    resultado = sumar(n1, n2);
+    alert(`Tu resultado es ${resultado}`);
+} else if (operacion ==  2) {
+    let n1 = prompt("Primer numero para restar");
+    let n2 = prompt("Segudo numero para restar");
+    resultado = restar(n1, n2);
+    alert(`Tu resultado es ${resultado}`);
+} else if (operacion ==  3) {
+    let n1 = prompt("Primer numero para dividir");
+    let n2 = prompt("Segudo numero para dividir");
+    resultado = dividir(n1, n2);
+    alert(`Tu resultado es ${resultado}`);
+} else if (operacion ==  4) {
+    let n1 = prompt("Primer numero para multiplicar");
+    let n2 = prompt("Segudo numero para multiplicar");
+    resultado = multiplicar(n1, n2);
+    alert(`Tu resultado es ${resultado}`);
+} else {
+    alert("Opcion incorrecta");
 }
