@@ -142,3 +142,129 @@ if (operacion ==  1) {
 } else {
     alert("Opcion incorrecta");
 }
+
+//Problema 3
+class Celular {
+    constructor(color, peso, rdp, rdc, ram){
+        this.color = color;
+        this.peso = peso;
+        this.rdp = rdp;
+        this.rdc = rdc;
+        this.ram = ram;
+        this.encendido = false;
+    }
+
+    presionarBotonEncendido(){
+        if(this.encendido == false) {
+            alert("celular prendido");
+            this.encendido = true;
+        } else {
+            alert("celular apagado");
+            this.encendido = false;
+        }
+    }
+
+    reiniciarCelular() {
+        if(this.encendido == true) {
+            alert("celular reiniciando");
+        } else {
+            alert("celular apagado");
+        }
+    }
+
+    tomarFoto() {
+        alert(`foto tomada, resolucion: ${this.rdc}`);
+    }
+
+    grabarVideo() {
+        alert(`grabando video, resolucion: ${this.rdc}`);
+    }
+
+    celularInfo(){
+        return `
+        Color: ${this.color}<br>
+        Peso: ${this.peso}<br>
+        Tamaño: ${this.rdp}<br>
+        Resolucion de camara: ${this.rdc}<br>
+        RAM: ${this.ram}<br>` 
+    }
+}
+
+class AltaGama extends Celular {
+    constructor(color, peso, rdp, rdc, ram, rdce){
+        super(color, peso, rdp, rdc, ram);
+        this.rdce = rdce;
+    }
+
+    grabarVideoLento() {
+        alert("Estas grabando en camra lenta");
+    }
+
+    reconocimientoFacial() {
+        alert("Vamos a iniciar reconocimiento facial");
+    }
+
+    infoAltaGama() {
+        return this.celularInfo() + `Resolucion camara extra: ${this.rdce}<br>`
+    }
+}
+
+
+/* celular1 = new Celular("rojo", "150g", "5'", "full hd", "2GB");
+celular2 = new Celular("negro", "110g", "4'", "720p", "1GB");
+celular3 = new Celular("azul", "180g", "6'", "4k", "4GB"); */
+
+/* celular1.presionarBotonEncendido();
+celular1.tomarFoto();
+celular1.grabarVideo();
+celular1.reiniciarCelular();
+celular1.presionarBotonEncendido(); */
+
+celular1 = new AltaGama("rojo", "1330g", "5.2", "4K", "3GB", "1080p");
+celular2 = new AltaGama("azul", "180g", "6'", "4k", "4GB", "4K");
+
+class App {
+    constructor(descragas, puntuacion, peso) {
+        this.descragas = descragas;
+        this.puntuacion = puntuacion;
+        this.peso = peso;
+        this.iniciada = false;
+        this.instalada = false;
+    }
+
+    abrir(){
+        if(this.iniciada == false && this.instalada == true) {
+            alert("app abierta");
+            this.iniciada = true;
+        } else {
+            alert("Ocurrio un problema");
+        }
+    }
+
+    cerrar(){
+        if(this.iniciada == true && this.instalada == true) {
+            alert("app cerrada");
+            this.iniciada = false;
+        } else {
+            alert("Ocurrio un problema");
+        }
+    }
+
+    instalar(){
+        if(this.instalada == false) {
+            alert("app instalada");
+            this.instalada = true;
+        } else {
+            alert("Ocurrio un problema");
+        }
+    }
+
+    desinstalar(){
+        if(this.instalada == true) {
+            alert("app desinstalada");
+            this.instalada = false;
+        } else {
+            alert("Ocurrio un problema");
+        }
+    }
+}
